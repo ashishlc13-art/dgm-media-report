@@ -1,4 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DGM Media Coverage | DGo OTT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .dgo-gradient { background: linear-gradient(90deg, #9C46D1 0%, #E94E77 50%, #F04A32 100%); }
+        .press-card:hover { transform: scale(1.03); transition: all 0.3s ease; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .logo-box { height: 60px; display: flex; align-items: center; justify-content: center; padding: 10px; }
+        .logo-box img { max-height: 100%; max-width: 100%; object-fit: contain; filter: grayscale(20%); transition: filter 0.3s; }
+        .press-card:hover img { filter: grayscale(0%); }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans leading-normal tracking-normal text-gray-900">
 
+    <!-- Navbar -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="logo.png" alt="DGO Logo" class="h-12">
+                <div class="h-8 w-px bg-gray-200"></div>
+                <h1 class="text-xl font-black text-gray-800 uppercase tracking-tighter">Media Coverage <span class="text-gray-400 font-light">| DGM</span></h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-2">
+                <span class="text-green-600 font-bold bg-green-50 px-4 py-1 rounded-full border border-green-200 text-xs uppercase">
+                    <i class="fa-solid fa-chart-line mr-1"></i> Total Spend: Rs. 0
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-10">
+
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">The Media Impact Report</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto text-lg">Documenting the viral reach of "Dimag Gochne Manche" through organic PR and aggressive in-house content production on DGo OTT.</p>
+        </div>
+
+        <!-- Press Grid - Clicks take you to the links -->
+        <h3 class="text-xs uppercase font-bold text-gray-400 mb-6 tracking-widest border-b pb-2">As Featured In (Click Logo to View News)</h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-20">
+            
+            <!-- 1. Nagarik News -->
+            <a href="https://nagariknews.nagariknetwork.com/arts/the-mind-blowing-man-can-now-be-watched-worldwide-via-ott-25-90.html" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
+                <div class="logo-box mb-4"><img src="https://nagariknews.nagariknetwork.com/themes/dg-nagarik/images/logo.png" alt="Nagarik"></div>
+                <p class="text-xs font-bold text-gray-600">Global OTT Launch</p>
+            </a>
+
+            <!-- 2. TechPana -->
+            <a href="https://techpana.com/2026/155992/documentary-on-ujwal-thapa-released-on-dishhome-ott-dgo" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
+                <div class="logo-box mb-4"><img src="https://www.techpana.com/images/logo.png" alt="TechPana"></div>
+                <p class="text-xs font-bold text-gray-600">Documentary on DishHome</p>
+            </a>
+
+            <!-- 3. Lokaantar -->
+            <a href="https://lokaantar.com/story/316078/2026/4/3/cinema/film-" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
+                <div class="logo-box mb-4"><img src="https://lokaantar.com/images/logo.png" alt="Lokaantar"></div>
+                <p class="text-xs font-bold text-gray-600">Ujwal Thapa Biography</p>
+            </a>
+
+            <!-- 4. Online Khabar -->
+            <a href="https://www.onlinekhabar.com" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
+                <div class="logo-box mb-4"><img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-2018/img/logo_onlinekhabar.png" alt="Online Khabar"></div>
+                <p class="text-xs font-bold text-gray-600">DGM Release News</p>
+            </a>
+
+            <!-- 5. Barahkhari -->
+            <a href="https://baahrakhari.com" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
+                <div class="logo-box mb-4"><img src="https://baahrakhari.com/images/logo.png" alt="Barahkhari"></div>
+                <p class="text-xs font-bold text-gray-600">Ujwal Thapa Legacy</p>
+            </a>
+
+            <!-- 6. Setopati -->
+            <a href="https://setopati.com" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
+                <div class="logo-box mb-4"><img src="https://setopati.com/images/logo.png" alt="Setopati"></div>
+                <p class="text-xs font-bold text-gray-600">DGM Now on DGo</p>
+            </a>
+
+             <!-- 7. BizPati -->
+             <a href="https://bizpati.com/2026/04/196812/" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
+                <div class="logo-box mb-4"><img src="https://bizpati.com/wp-content/themes/bizpati/images/logo.png" alt="BizPati"></div>
+                <p class="text-xs font-bold text-gray-600">Official Announcement</p>
+            </a>
+
+            <!-- 8. ICT Frame -->
+            <a href="https://np.ictframe.com/ujwal-thapa-documentary-dgo/" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
+                <div class="logo-box mb-4"><img src="https://np.ictframe.com/wp-content/uploads/2018/06/ict-logo.png" alt="ICT Frame"></div>
+                <p class="text-xs font-bold text-gray-600">OTT Platform Tech</p>
+            </a>
+
+            <!-- 9. Nepal Khabar -->
+            <a href="https://nepalkhabar.com" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
+                <div class="logo-box mb-4"><img src="https://nepalkhabar.com/public/images/logo.png" alt="Nepal Khabar"></div>
+                <p class="text-xs font-bold text-gray-600">Biography Coverage</p>
+            </a>
+
+            <!-- 10. Facebook (Online Paana) -->
+            <a href="https://www.facebook.com/100063660906045/posts/1544439337688082/" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
+                <div class="logo-box mb-4 text-blue-600 text-4xl"><i class="fa-brands fa-facebook-f"></i></div>
+                
 <!DOCTYPE html>
 <html lang="en">
 <head>
