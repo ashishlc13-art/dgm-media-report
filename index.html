@@ -1,4 +1,210 @@
-{
+{<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DGM | Media & Financial Impact Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .dgo-gradient { background: linear-gradient(135deg, #9C46D1 0%, #E94E77 50%, #F04A32 100%); }
+        .news-badge { transition: all 0.2s ease; border: 1px solid #e2e8f0; }
+        .news-badge:hover { background-color: #fff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-color: #9C46D1; }
+        .tiny-text { font-size: 0.7rem; line-height: 1rem; }
+        .stat-card { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); }
+    </style>
+</head>
+<body class="text-slate-900">
+
+    <!-- Sticky Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="logo.png" alt="DGo" class="h-8">
+                <span class="font-black text-xs uppercase tracking-widest text-slate-400 border-l pl-3">Impact Report 2026</span>
+            </div>
+            <div class="flex space-x-4">
+                <div class="text-right">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase">Project Budget</p>
+                    <p class="text-xs font-black text-green-600">NPR 0.00 (100% Organic)</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        
+        <!-- SECTION 1: THE DENSE NEWS WALL (Whole Page Coverage) -->
+        <div class="mb-12">
+            <h2 class="text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-6 flex items-center">
+                <i class="fa-solid fa-newspaper mr-2"></i> Global Media Mentions (15+ Outlets)
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                
+                <!-- 1. Setopati -->
+                <a href="https://www.setopati.com/art/art-activity/385727" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <img src="https://setopati.com/images/logo.png" class="h-5 w-5 object-contain grayscale opacity-70">
+                    <div>
+                        <p class="font-bold text-[9px] text-purple-600 uppercase">Setopati</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">उज्वल थापाको डकुमेन्ट्री डिगो ओटीटीमा</p>
+                    </div>
+                </a>
+
+                <!-- 2. Online Khabar -->
+                <a href="https://www.onlinekhabar.com" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-2018/img/logo_onlinekhabar.png" class="h-5 w-5 object-contain">
+                    <div>
+                        <p class="font-bold text-[9px] text-blue-600 uppercase">Online Khabar</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">जीवनीमा आधारित वृत्तचित्र प्रदर्शन</p>
+                    </div>
+                </a>
+
+                <!-- 3. Nagarik News -->
+                <a href="https://nagariknews.nagariknetwork.com/arts/the-mind-blowing-man-can-now-be-watched-worldwide-via-ott-25-90.html" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <img src="https://nagariknews.nagariknetwork.com/themes/dg-nagarik/images/logo.png" class="h-5 w-5 object-contain">
+                    <div>
+                        <p class="font-bold text-[9px] text-red-600 uppercase">Nagarik News</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Watch Worldwide via OTT</p>
+                    </div>
+                </a>
+
+                <!-- 4. TechPana -->
+                <a href="https://techpana.com/2026/155992/documentary-on-ujwal-thapa-released-on-dishhome-ott-dgo" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <img src="https://www.techpana.com/images/logo.png" class="h-5 w-5 object-contain">
+                    <div>
+                        <p class="font-bold text-[9px] text-slate-800 uppercase">TechPana</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Released on DishHome OTT</p>
+                    </div>
+                </a>
+
+                <!-- 5. Lokaantar -->
+                <a href="https://lokaantar.com/story/316078/2026/4/3/cinema/film-" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <img src="https://lokaantar.com/images/logo.png" class="h-5 w-5 object-contain">
+                    <div>
+                        <p class="font-bold text-[9px] text-orange-600 uppercase">Lokaantar</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">वृत्तचित्र डी गो प्लेटफर्ममा</p>
+                    </div>
+                </a>
+
+                <!-- 6. ICT Frame -->
+                <a href="https://np.ictframe.com/ujwal-thapa-documentary-dgo/" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <img src="https://np.ictframe.com/wp-content/uploads/2018/06/ict-logo.png" class="h-5 w-5 object-contain">
+                    <div>
+                        <p class="font-bold text-[9px] text-blue-500 uppercase">ICT Frame</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Ujwal Thapa Documentary DGO</p>
+                    </div>
+                </a>
+
+                <!-- 7. BizPati -->
+                <a href="https://bizpati.com/2026/04/196812/" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <img src="https://bizpati.com/wp-content/themes/bizpati/images/logo.png" class="h-5 w-5 object-contain">
+                    <div>
+                        <p class="font-bold text-[9px] text-green-700 uppercase">BizPati</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">आधिकारिक रूपमा डी गोमा</p>
+                    </div>
+                </a>
+
+                <!-- 8. Barahkhari -->
+                <a href="#" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <div class="h-5 w-5 bg-slate-200 rounded text-[8px] flex items-center justify-center font-bold">BK</div>
+                    <div>
+                        <p class="font-bold text-[9px] text-slate-800 uppercase">Barahkhari</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Ujwal Thapa Biography News</p>
+                    </div>
+                </a>
+
+                <!-- 9. Nepal Khabar -->
+                <a href="#" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <div class="h-5 w-5 bg-red-100 rounded text-[8px] flex items-center justify-center font-bold text-red-600">NK</div>
+                    <div>
+                        <p class="font-bold text-[9px] text-red-600 uppercase">Nepal Khabar</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">डिगो ओटीटीमा रिलिज</p>
+                    </div>
+                </a>
+
+                <!-- 10. Artha Patra -->
+                <a href="#" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <div class="h-5 w-5 bg-blue-100 rounded text-[8px] flex items-center justify-center font-bold text-blue-600">AP</div>
+                    <div>
+                        <p class="font-bold text-[9px] text-blue-600 uppercase">Artha Patra</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">बहुप्रतिक्षित वृत्तचित्र</p>
+                    </div>
+                </a>
+
+                <!-- 11. Artha Path -->
+                <a href="#" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <div class="h-5 w-5 bg-slate-100 rounded text-[8px] flex items-center justify-center font-bold text-slate-600">AP</div>
+                    <div>
+                        <p class="font-bold text-[9px] text-slate-600 uppercase">Artha Path</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">डी गो प्लेटफर्ममा प्रदर्शन</p>
+                    </div>
+                </a>
+
+                <!-- 12. Artha Chautari -->
+                <a href="#" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <div class="h-5 w-5 bg-green-100 rounded text-[8px] flex items-center justify-center font-bold text-green-600">AC</div>
+                    <div>
+                        <p class="font-bold text-[9px] text-green-600 uppercase">Artha Chautari</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">जीवनवृत्त समेटिएको डकुमेन्ट्री</p>
+                    </div>
+                </a>
+
+                <!-- 13. Breaklinks -->
+                <a href="https://breaknlinks.com/nepali/category/art-1/news/10317" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <div class="h-5 w-5 bg-indigo-100 rounded text-[8px] flex items-center justify-center font-bold text-indigo-600">BL</div>
+                    <div>
+                        <p class="font-bold text-[9px] text-indigo-600 uppercase">Breaklinks</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Art & News Coverage</p>
+                    </div>
+                </a>
+
+                <!-- 14. Online Paana (FB) -->
+                <a href="https://www.facebook.com/100063660906045/posts/1544439337688082/" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
+                    <i class="fa-brands fa-facebook text-blue-600 text-sm"></i>
+                    <div>
+                        <p class="font-bold text-[9px] text-blue-800 uppercase">Online Paana</p>
+                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Social Viral Post</p>
+                    </div>
+                </a>
+
+                <!-- 15. DGM PR Hub -->
+                <div class="news-badge bg-slate-50 p-3 rounded-xl flex items-center space-x-3 border-dashed">
+                    <i class="fa-solid fa-plus text-slate-300 text-xs"></i>
+                    <div>
+                        <p class="font-bold text-[9px] text-slate-400 uppercase">Other Portals</p>
+                        <p class="tiny-text font-medium text-slate-300 italic w-32">Content Syndication</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECTION 2: CREATIVE FINANCIAL & CONTENT ESTIMATION -->
+        <div class="dgo-gradient rounded-[3rem] p-8 md:p-16 text-white shadow-2xl relative overflow-hidden">
+            
+            <!-- Background Elements -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -ml-20 -mb-20"></div>
+
+            <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Side: Content Production -->
+                <div>
+                    <h3 class="text-xs font-black uppercase tracking-[0.3em] mb-4 text-white/60">Digital Assets Produced</h3>
+                    <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter">Maximum Reach.<br>Zero Spending.</h2>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="stat-card p-6 rounded-3xl">
+                            <i class="fa-solid fa-film text-2xl mb-3 text-yellow-400"></i>
+                            <p class="text-3xl font-black">5+</p>
+                            <p class="text-[10px] font-bold uppercase opacity-60">High-Production Featurettes</p>
+                        </div>
+                        <div class="stat-card p-6 rounded-3xl">
+                            <i class="fa-solid fa-bolt text-2xl mb-3 text-blue-400"></i>
+                            <p class="text-3xl font-black">20+</p>
   "queries": [
     "Setopati logo image url",
     "Online Paana logo image url",
