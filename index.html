@@ -1,798 +1,218 @@
-Replaced old code with new implementation<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impact Report: Dimag Ghochne Manche</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #00d2ff;
-            --secondary: #004e92;
-            --success: #2ecc71;
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f1f5f9;
-            --text-dim: #94a3b8;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Header Section */
-        header {
-            text-align: center;
-            border-bottom: 2px solid var(--card-bg);
-            padding-bottom: 40px;
-            margin-bottom: 40px;
-        }
-
-        .badge {
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
-
-        h1 { font-size: 2.5rem; margin: 15px 0 5px 0; }
-        .lead-info { color: var(--text-dim); font-size: 1.1rem; }
-
-        /* Executive Summary */
-        .summary-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .highlight-text {
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* Financial Table */
-        .table-container {
-            margin: 40px 0;
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        th {
-            background: #334155;
-            color: var(--primary);
-            text-align: left;
-            padding: 15px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #334155;
-        }
-
-        .cost-zero {
-            color: var(--success);
-            font-weight: bold;
-            background: rgba(46, 204, 113, 0.1);
-            padding: 4px 10px;
-            border-radius: 5px;
-        }
-
-        .market-rate {
-            color: var(--text-dim);
-            text-decoration: line-through;
-        }
-
-        .total-row {
-            background: #0f172a;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        /* Strategy Pillars */
-        .pillars {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .pillar-card {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .pillar-card i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        /* Media Buttons */
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .news-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #334155;
-            color: white;
-            text-decoration: none;
-            padding: 12px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--primary);
-        }
-
-        .news-btn:hover {
-            background: var(--primary);
-            transform: scale(1.03);
-            color: #000;
-        }
-
-        .news-btn i { font-size: 0.8rem; }
-
-        /* Footer Note */
-        .footer-note {
-            margin-top: 50px;
-            padding: 20px;
-            border-left: 4px solid var(--success);
-            background: rgba(46, 204, 113, 0.05);
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            .summary-grid, .pillars { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <span class="badge">Project Completion Report</span>
-        <h1>Dimag Ghochne Manche</h1>
-        <p class="lead-info">Digital Premiere & Global Outreach | Lead: <strong>Aashish Lamichhane</strong></p>
-        <p style="color: var(--primary);"><i class="far fa-calendar-alt"></i> April 2026 | D Go x Ujwal Thapa Foundation</p>
-    </header>
-
-    <section class="summary-grid">
-        <div class="card">
-            <h3><i class="fas fa-bullseye"></i> Executive Summary</h3>
-            <p>Following the strategic partnership with the <strong>Ujwal Thapa Foundation</strong>, we led the end-to-end branding and distribution of the 1h 50m documentary. This served as the <span class="highlight-text">Soft Launch for D Go’s new identity</span>.</p>
-        </div>
-        <div class="card" style="border-top: 4px solid var(--success);">
-            <h3><i class="fas fa-chart-line"></i> Efficiency Win</h3>
-            <p>Achieved massive visibility across <strong>16 media outlets</strong> with <span class="highlight-text" style="color:var(--success)">Zero Marketing Spend</span>. We saved significant capital while positioning D Go as a socially responsible leader.</p>
-        </div>
-    </section>
-
-    <h2 style="text-align: center; margin-top: 60px;">Strategic Execution</h2>
-    <div class="pillars">
-        <div class="pillar-card">
-            <i class="fas fa-paint-brush"></i>
-            <h4>Visual Identity</h4>
-            <p>Partnered with BLQ to produce premium assets introducing the new D Go branding.</p>
-        </div>
-        <div class="pillar-card">
-            <i class="fas fa-share-alt"></i>
-            <h4>Engagement</h4>
-            <p>5 targeted video clips distributed to drive massive organic social sharing.</p>
-        </div>
-        <div class="pillar-card">
-            <i class="fas fa-newspaper"></i>
-            <h4>Editorial PR</h4>
-            <p>"Reality over Pranks" narrative secured organic slots in national news portals.</p>
-        </div>
-    </div>
-
-    <h2 style="margin-top: 60px;"><i class="fas fa-file-invoice-dollar"></i> Financial Performance & Value Audit</h2>
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Description</th>
-                    <th>Market Rate (Est.)</th>
-                    <th>D Go Actual Cost</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Top-Tier Portals</td>
-                    <td>Setopati, Onlinekhabar, Nagarik News</td>
-                    <td class="market-rate">NPR 85,000</td>
-                    <td><span class="cost-zero">NPR 0</span></td>
-                </tr>
-                <tr>
-                    <td>Social Authority</td>
-                    <td>Viral post on RONB</td>
-                    <td class="market-rate">NPR 65,000</td>
-                    <td><span class="cost-zero">NPR 0</span></td>
-                </tr>
-                <tr>
-                    <td>Mainstream News</td>
-                    <td>5 Articles (Baahrakhari, Lokaantar, etc.)</td>
-                    <td class="market-rate">NPR 75,000</td>
-                    <td><span class="cost-zero">NPR 0</span></td>
-                </tr>
-                <tr>
-                    <td>Tech & Business</td>
-                    <td>7 Specialized features (Techpana, ICT, etc.)</td>
-                    <td class="market-rate">NPR 55,000</td>
-                    <td><span class="cost-zero">NPR 0</span></td>
-                </tr>
-                <tr>
-                    <td>Creative Assets</td>
-                    <td>5 BLQ Social Media Clips</td>
-                    <td class="market-rate">NPR 20,000</td>
-                    <td><span class="cost-zero">NPR 0</span></td>
-                </tr>
-                <tr class="total-row">
-                    <td colspan="2" style="text-align: right;">TOTAL EARNED MEDIA VALUE:</td>
-                    <td style="color: var(--primary);">NPR 3,00,000</td>
-                    <td style="color: var(--success);">NPR 0</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="footer-note">
-        <strong>Note to Board:</strong> This NPR 3,00,000 in value was secured through internal relationship management and professional "privilege," ensuring 100% of efforts benefitted the platform's reputation without draining cash flow.
-    </div>
-
-    <h2 style="margin-top: 60px;"><i class="fas fa-globe"></i> Global Diaspora Strategy</h2>
-    <div class="card">
-        <p>To capture markets in the <strong>USA, Australia, Europe, and Canada</strong>, we utilized the 16 verified news links to build instant credibility. We leveraged the D Go OTT infrastructure to ensure a seamless viewing experience while highlighting that every view supports the Ujwal Thapa Foundation.</p>
-    </div>
-
-    <h2 style="margin-top: 60px;"><i class="fas fa-external-link-alt"></i> Media Coverage Appendix</h2>
-    <p style="color: var(--text-dim);">Click on any media house below to view the official coverage.</p>
-    
-    <div class="media-grid">
-        <a href="https://www.setopati.com/" target="_blank" class="news-btn">Setopati <i class="fas fa-external-link-alt"></i></a>
-        <a href="https://www.onlinekhabar.com/" target="_blank" class="news-btn">Onlinekhabar <i class="fas fa-external-link-alt"></i></a>
-        <a href="#" target="_blank" class="news-btn">Online Pana <i class="fas fa-external-link-alt"></i></a>
-        <a href="https://nepalkhabar.com/" target="_blank" class="news-btn">Nepal Khabar <i class="fas fa-external-link-alt"></i></a>
-        <a href="#" target="_blank" class="news-btn">Artapana <i class="fas fa-external-link-alt"></i></a>
-        <a href="#" target="_blank" class="news-btn">Arthapath <i class="fas fa-external-link-alt"></i></a>
-        <a href="#" target="_blank" class="news-btn">Artha Chautari <i class="fas fa-external-link-alt"></i></a>
-        <a href="https://ictframe.com/" target="_blank" class="news-btn">ICT Frame <i class="fas fa-external-link-alt"></i></a>
-        <a href="https://baahrakhari.com/" target="_blank" class="news-btn">Baahrakhari <i class="fas fa-external-link-alt"></i></a>
-        <a href="#" target="_blank" class="news-btn">Breaknlinks <i class="fas fa-external-link-alt"></i></a>
-        <a href="https://bizpati.com/" target="_blank" class="news-btn">Bizpati <i class="fas fa-external-link-alt"></i></a>
-        <a href="https://lokaantar.com/" target="_blank" class="news-btn">Lokaantar <i class="fas fa-external-link-alt"></i></a>
-        <a href="https://www.techpana.com/" target="_blank" class="news-btn">Techpana <i class="fas fa-external-link-alt"></i></a>
-        <a href="https://nagariknews.nagariknetwork.com/" target="_blank" class="news-btn">Nagarik News <i class="fas fa-external-link-alt"></i></a>
-        <a href="#" target="_blank" class="news-btn">RONB (FB) <i class="fas fa-external-link-alt"></i></a>
-        <a href="#" target="_blank" class="news-btn">Online Pana (FB) <i class="fas fa-external-link-alt"></i></a>
-    </div>
-
-    <footer style="margin-top: 80px; text-align: center; color: var(--text-dim); padding-bottom: 40px;">
-        <p>&copy; 2026 D Go Media Group. Confidential Board Report.</p>
-    </footer>
-</div>
-
-</body>
-</html>{<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DGM | Media & Financial Impact Report</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        .dgo-gradient { background: linear-gradient(135deg, #9C46D1 0%, #E94E77 50%, #F04A32 100%); }
-        .news-badge { transition: all 0.2s ease; border: 1px solid #e2e8f0; }
-        .news-badge:hover { background-color: #fff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-color: #9C46D1; }
-        .tiny-text { font-size: 0.7rem; line-height: 1rem; }
-        .stat-card { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); }
-    </style>
-</head>
-<body class="text-slate-900">
-
-    <!-- Sticky Header -->
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <img src="logo.png" alt="DGo" class="h-8">
-                <span class="font-black text-xs uppercase tracking-widest text-slate-400 border-l pl-3">Impact Report 2026</span>
-            </div>
-            <div class="flex space-x-4">
-                <div class="text-right">
-                    <p class="text-[10px] font-bold text-slate-400 uppercase">Project Budget</p>
-                    <p class="text-xs font-black text-green-600">NPR 0.00 (100% Organic)</p>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main class="container mx-auto px-4 py-8">
-        
-        <!-- SECTION 1: THE DENSE NEWS WALL (Whole Page Coverage) -->
-        <div class="mb-12">
-            <h2 class="text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-6 flex items-center">
-                <i class="fa-solid fa-newspaper mr-2"></i> Global Media Mentions (15+ Outlets)
-            </h2>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-                
-                <!-- 1. Setopati -->
-                <a href="https://www.setopati.com/art/art-activity/385727" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <img src="https://setopati.com/images/logo.png" class="h-5 w-5 object-contain grayscale opacity-70">
-                    <div>
-                        <p class="font-bold text-[9px] text-purple-600 uppercase">Setopati</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">उज्वल थापाको डकुमेन्ट्री डिगो ओटीटीमा</p>
-                    </div>
-                </a>
-
-                <!-- 2. Online Khabar -->
-                <a href="https://www.onlinekhabar.com" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-2018/img/logo_onlinekhabar.png" class="h-5 w-5 object-contain">
-                    <div>
-                        <p class="font-bold text-[9px] text-blue-600 uppercase">Online Khabar</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">जीवनीमा आधारित वृत्तचित्र प्रदर्शन</p>
-                    </div>
-                </a>
-
-                <!-- 3. Nagarik News -->
-                <a href="https://nagariknews.nagariknetwork.com/arts/the-mind-blowing-man-can-now-be-watched-worldwide-via-ott-25-90.html" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <img src="https://nagariknews.nagariknetwork.com/themes/dg-nagarik/images/logo.png" class="h-5 w-5 object-contain">
-                    <div>
-                        <p class="font-bold text-[9px] text-red-600 uppercase">Nagarik News</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Watch Worldwide via OTT</p>
-                    </div>
-                </a>
-
-                <!-- 4. TechPana -->
-                <a href="https://techpana.com/2026/155992/documentary-on-ujwal-thapa-released-on-dishhome-ott-dgo" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <img src="https://www.techpana.com/images/logo.png" class="h-5 w-5 object-contain">
-                    <div>
-                        <p class="font-bold text-[9px] text-slate-800 uppercase">TechPana</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Released on DishHome OTT</p>
-                    </div>
-                </a>
-
-                <!-- 5. Lokaantar -->
-                <a href="https://lokaantar.com/story/316078/2026/4/3/cinema/film-" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <img src="https://lokaantar.com/images/logo.png" class="h-5 w-5 object-contain">
-                    <div>
-                        <p class="font-bold text-[9px] text-orange-600 uppercase">Lokaantar</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">वृत्तचित्र डी गो प्लेटफर्ममा</p>
-                    </div>
-                </a>
-
-                <!-- 6. ICT Frame -->
-                <a href="https://np.ictframe.com/ujwal-thapa-documentary-dgo/" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <img src="https://np.ictframe.com/wp-content/uploads/2018/06/ict-logo.png" class="h-5 w-5 object-contain">
-                    <div>
-                        <p class="font-bold text-[9px] text-blue-500 uppercase">ICT Frame</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Ujwal Thapa Documentary DGO</p>
-                    </div>
-                </a>
-
-                <!-- 7. BizPati -->
-                <a href="https://bizpati.com/2026/04/196812/" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <img src="https://bizpati.com/wp-content/themes/bizpati/images/logo.png" class="h-5 w-5 object-contain">
-                    <div>
-                        <p class="font-bold text-[9px] text-green-700 uppercase">BizPati</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">आधिकारिक रूपमा डी गोमा</p>
-                    </div>
-                </a>
-
-                <!-- 8. Barahkhari -->
-                <a href="#" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <div class="h-5 w-5 bg-slate-200 rounded text-[8px] flex items-center justify-center font-bold">BK</div>
-                    <div>
-                        <p class="font-bold text-[9px] text-slate-800 uppercase">Barahkhari</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Ujwal Thapa Biography News</p>
-                    </div>
-                </a>
-
-                <!-- 9. Nepal Khabar -->
-                <a href="#" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <div class="h-5 w-5 bg-red-100 rounded text-[8px] flex items-center justify-center font-bold text-red-600">NK</div>
-                    <div>
-                        <p class="font-bold text-[9px] text-red-600 uppercase">Nepal Khabar</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">डिगो ओटीटीमा रिलिज</p>
-                    </div>
-                </a>
-
-                <!-- 10. Artha Patra -->
-                <a href="#" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <div class="h-5 w-5 bg-blue-100 rounded text-[8px] flex items-center justify-center font-bold text-blue-600">AP</div>
-                    <div>
-                        <p class="font-bold text-[9px] text-blue-600 uppercase">Artha Patra</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">बहुप्रतिक्षित वृत्तचित्र</p>
-                    </div>
-                </a>
-
-                <!-- 11. Artha Path -->
-                <a href="#" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <div class="h-5 w-5 bg-slate-100 rounded text-[8px] flex items-center justify-center font-bold text-slate-600">AP</div>
-                    <div>
-                        <p class="font-bold text-[9px] text-slate-600 uppercase">Artha Path</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">डी गो प्लेटफर्ममा प्रदर्शन</p>
-                    </div>
-                </a>
-
-                <!-- 12. Artha Chautari -->
-                <a href="#" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <div class="h-5 w-5 bg-green-100 rounded text-[8px] flex items-center justify-center font-bold text-green-600">AC</div>
-                    <div>
-                        <p class="font-bold text-[9px] text-green-600 uppercase">Artha Chautari</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">जीवनवृत्त समेटिएको डकुमेन्ट्री</p>
-                    </div>
-                </a>
-
-                <!-- 13. Breaklinks -->
-                <a href="https://breaknlinks.com/nepali/category/art-1/news/10317" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <div class="h-5 w-5 bg-indigo-100 rounded text-[8px] flex items-center justify-center font-bold text-indigo-600">BL</div>
-                    <div>
-                        <p class="font-bold text-[9px] text-indigo-600 uppercase">Breaklinks</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Art & News Coverage</p>
-                    </div>
-                </a>
-
-                <!-- 14. Online Paana (FB) -->
-                <a href="https://www.facebook.com/100063660906045/posts/1544439337688082/" target="_blank" class="news-badge bg-white p-3 rounded-xl flex items-center space-x-3">
-                    <i class="fa-brands fa-facebook text-blue-600 text-sm"></i>
-                    <div>
-                        <p class="font-bold text-[9px] text-blue-800 uppercase">Online Paana</p>
-                        <p class="tiny-text font-medium text-slate-600 truncate w-32">Social Viral Post</p>
-                    </div>
-                </a>
-
-                <!-- 15. DGM PR Hub -->
-                <div class="news-badge bg-slate-50 p-3 rounded-xl flex items-center space-x-3 border-dashed">
-                    <i class="fa-solid fa-plus text-slate-300 text-xs"></i>
-                    <div>
-                        <p class="font-bold text-[9px] text-slate-400 uppercase">Other Portals</p>
-                        <p class="tiny-text font-medium text-slate-300 italic w-32">Content Syndication</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- SECTION 2: CREATIVE FINANCIAL & CONTENT ESTIMATION -->
-        <div class="dgo-gradient rounded-[3rem] p-8 md:p-16 text-white shadow-2xl relative overflow-hidden">
-            
-            <!-- Background Elements -->
-            <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -ml-20 -mb-20"></div>
-
-            <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-                
-                <!-- Left Side: Content Production -->
-                <div>
-                    <h3 class="text-xs font-black uppercase tracking-[0.3em] mb-4 text-white/60">Digital Assets Produced</h3>
-                    <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter">Maximum Reach.<br>Zero Spending.</h2>
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="stat-card p-6 rounded-3xl">
-                            <i class="fa-solid fa-film text-2xl mb-3 text-yellow-400"></i>
-                            <p class="text-3xl font-black">5+</p>
-                            <p class="text-[10px] font-bold uppercase opacity-60">High-Production Featurettes</p>
-                        </div>
-                        <div class="stat-card p-6 rounded-3xl">
-                            <i class="fa-solid fa-bolt text-2xl mb-3 text-blue-400"></i>
-                            <p class="text-3xl font-black">20+</p>
-  "queries": [
-    "Setopati logo image url",
-    "Online Paana logo image url",
-    "Nepal Khabar logo image url",
-    "DishHome DGo logo image url"
-  ]
-}<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DGM Media Coverage | DGo OTT</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .dgo-gradient { background: linear-gradient(90deg, #9C46D1 0%, #E94E77 50%, #F04A32 100%); }
-        .press-card:hover { transform: scale(1.03); transition: all 0.3s ease; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        .logo-box { height: 60px; display: flex; align-items: center; justify-content: center; padding: 10px; }
-        .logo-box img { max-height: 100%; max-width: 100%; object-fit: contain; filter: grayscale(20%); transition: filter 0.3s; }
-        .press-card:hover img { filter: grayscale(0%); }
-    </style>
-</head>
-<body class="bg-gray-50 font-sans leading-normal tracking-normal text-gray-900">
-
-    <!-- Navbar -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <img src="logo.png" alt="DGO Logo" class="h-12">
-                <div class="h-8 w-px bg-gray-200"></div>
-                <h1 class="text-xl font-black text-gray-800 uppercase tracking-tighter">Media Coverage <span class="text-gray-400 font-light">| DGM</span></h1>
-            </div>
-            <div class="hidden md:flex items-center space-x-2">
-                <span class="text-green-600 font-bold bg-green-50 px-4 py-1 rounded-full border border-green-200 text-xs uppercase">
-                    <i class="fa-solid fa-chart-line mr-1"></i> Total Spend: Rs. 0
-                </span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-10">
-
-        <!-- Header -->
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">The Media Impact Report</h2>
-            <p class="text-gray-500 max-w-2xl mx-auto text-lg">Documenting the viral reach of "Dimag Gochne Manche" through organic PR and aggressive in-house content production on DGo OTT.</p>
-        </div>
-
-        <!-- Press Grid - Clicks take you to the links -->
-        <h3 class="text-xs uppercase font-bold text-gray-400 mb-6 tracking-widest border-b pb-2">As Featured In (Click Logo to View News)</h3>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-20">
-            
-            <!-- 1. Nagarik News -->
-            <a href="https://nagariknews.nagariknetwork.com/arts/the-mind-blowing-man-can-now-be-watched-worldwide-via-ott-25-90.html" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
-                <div class="logo-box mb-4"><img src="https://nagariknews.nagariknetwork.com/themes/dg-nagarik/images/logo.png" alt="Nagarik"></div>
-                <p class="text-xs font-bold text-gray-600">Global OTT Launch</p>
-            </a>
-
-            <!-- 2. TechPana -->
-            <a href="https://techpana.com/2026/155992/documentary-on-ujwal-thapa-released-on-dishhome-ott-dgo" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
-                <div class="logo-box mb-4"><img src="https://www.techpana.com/images/logo.png" alt="TechPana"></div>
-                <p class="text-xs font-bold text-gray-600">Documentary on DishHome</p>
-            </a>
-
-            <!-- 3. Lokaantar -->
-            <a href="https://lokaantar.com/story/316078/2026/4/3/cinema/film-" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
-                <div class="logo-box mb-4"><img src="https://lokaantar.com/images/logo.png" alt="Lokaantar"></div>
-                <p class="text-xs font-bold text-gray-600">Ujwal Thapa Biography</p>
-            </a>
-
-            <!-- 4. Online Khabar -->
-            <a href="https://www.onlinekhabar.com" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
-                <div class="logo-box mb-4"><img src="https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-2018/img/logo_onlinekhabar.png" alt="Online Khabar"></div>
-                <p class="text-xs font-bold text-gray-600">DGM Release News</p>
-            </a>
-
-            <!-- 5. Barahkhari -->
-            <a href="https://baahrakhari.com" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
-                <div class="logo-box mb-4"><img src="https://baahrakhari.com/images/logo.png" alt="Barahkhari"></div>
-                <p class="text-xs font-bold text-gray-600">Ujwal Thapa Legacy</p>
-            </a>
-
-            <!-- 6. Setopati -->
-            <a href="https://setopati.com" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
-                <div class="logo-box mb-4"><img src="https://setopati.com/images/logo.png" alt="Setopati"></div>
-                <p class="text-xs font-bold text-gray-600">DGM Now on DGo</p>
-            </a>
-
-             <!-- 7. BizPati -->
-             <a href="https://bizpati.com/2026/04/196812/" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
-                <div class="logo-box mb-4"><img src="https://bizpati.com/wp-content/themes/bizpati/images/logo.png" alt="BizPati"></div>
-                <p class="text-xs font-bold text-gray-600">Official Announcement</p>
-            </a>
-
-            <!-- 8. ICT Frame -->
-            <a href="https://np.ictframe.com/ujwal-thapa-documentary-dgo/" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
-                <div class="logo-box mb-4"><img src="https://np.ictframe.com/wp-content/uploads/2018/06/ict-logo.png" alt="ICT Frame"></div>
-                <p class="text-xs font-bold text-gray-600">OTT Platform Tech</p>
-            </a>
-
-            <!-- 9. Nepal Khabar -->
-            <a href="https://nepalkhabar.com" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
-                <div class="logo-box mb-4"><img src="https://nepalkhabar.com/public/images/logo.png" alt="Nepal Khabar"></div>
-                <p class="text-xs font-bold text-gray-600">Biography Coverage</p>
-            </a>
-
-            <!-- 10. Facebook (Online Paana) -->
-            <a href="https://www.facebook.com/100063660906045/posts/1544439337688082/" target="_blank" class="bg-white p-6 rounded-2xl border border-gray-100 press-card flex flex-col items-center text-center">
-                <div class="logo-box mb-4 text-blue-600 text-4xl"><i class="fa-brands fa-facebook-f"></i></div>
-                
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Impact Report | Dimag Gochne Manche</title>
+    <title>DGM Impact Dashboard | DGo OTT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .dgo-gradient { background: linear-gradient(90deg, #9C46D1 0%, #E94E77 50%, #F04A32 100%); }
-        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f3f4f6; }
+        .dgo-gradient { background: linear-gradient(135deg, #9C46D1 0%, #E94E77 50%, #F04A32 100%); }
+        .news-tab { transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05); }
+        .news-tab:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: #9C46D1; background: white; }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="text-slate-800">
 
-    <!-- Hero Section -->
-    <header class="bg-white border-b sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <!-- DGO LOGO -->
-                <img src="logo.png" alt="DGO Logo" class="h-10">
-                <div class="h-8 w-px bg-gray-300"></div>
-                <h1 class="text-xl font-bold tracking-tight text-gray-700">Dimag Gochne Manche <span class="text-gray-400 font-light">| Media Impact</span></h1>
+    <!-- Minimal Nav -->
+    <nav class="bg-white/70 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 px-6 py-3">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="logo.png" alt="DGo" class="h-8">
+                <div class="h-6 w-px bg-slate-300"></div>
+                <span class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-400">Media Impact Report 2026</span>
             </div>
-            <div class="hidden md:block">
-                <span class="bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-sm font-bold border border-green-200">
-                    <i class="fa-solid fa-circle-check mr-2"></i>100% ORGANIC REACH
-                </span>
+            <div class="bg-green-100 text-green-700 text-[10px] font-black px-3 py-1 rounded-full border border-green-200 uppercase">
+                Campaign Cost: NPR 0.00
             </div>
         </div>
-    </header>
+    </nav>
 
-    <main class="container mx-auto px-6 py-12">
-        
-        <!-- Summary Dashboard -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 card-hover">
-                <p class="text-gray-500 text-xs uppercase font-bold tracking-widest mb-1">Media Coverage</p>
-                <h2 class="text-3xl font-black text-gray-800">15+</h2>
-                <p class="text-purple-600 text-sm mt-1">Premium Portals</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 card-hover">
-                <p class="text-gray-500 text-xs uppercase font-bold tracking-widest mb-1">In-House Content</p>
-                <h2 class="text-3xl font-black text-gray-800">25+</h2>
-                <p class="text-pink-600 text-sm mt-1">Videos & Clips</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 card-hover">
-                <p class="text-gray-500 text-xs uppercase font-bold tracking-widest mb-1">Ad Spending</p>
-                <h2 class="text-3xl font-black text-green-600">Rs. 0</h2>
-                <p class="text-gray-400 text-sm mt-1">Managed for Free</p>
-            </div>
-            <div class="dgo-gradient p-6 rounded-2xl shadow-lg text-white card-hover">
-                <p class="opacity-80 text-xs uppercase font-bold tracking-widest mb-1">Earned Value</p>
-                <h2 class="text-3xl font-black">Rs. 4.5L+</h2>
-                <p class="text-white text-sm mt-1 font-medium">Estimated ROI</p>
+    <main class="container mx-auto px-4 py-10">
+
+        <!-- Header -->
+        <div class="mb-12">
+            <h1 class="text-4xl font-extrabold tracking-tighter text-slate-900 mb-2">Dimag Gochne Manche</h1>
+            <p class="text-slate-500 text-sm italic">"A Global Digital Release Case Study: Organic Reach & Internal Content Efficiency"</p>
+        </div>
+
+        <!-- 1. NEWS TAB SECTION (Whole Page Grid) -->
+        <div class="mb-16">
+            <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-6 flex items-center">
+                <span class="w-8 h-px bg-slate-300 mr-3"></span> Media Clipping Wall (15+ Portals)
+            </h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                
+                <!-- Setopati -->
+                <a href="https://www.setopati.com/art/art-activity/385727" target="_blank" class="news-tab bg-slate-50 p-3 rounded-2xl flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-sm text-xs font-bold text-slate-400">S</div>
+                    <div>
+                        <p class="text-[10px] font-bold text-purple-600 uppercase leading-none mb-1">Setopati</p>
+                        <p class="text-[9px] text-slate-500 truncate w-24">डिगो ओटीटीमा रिलिज</p>
+                    </div>
+                </a>
+
+                <!-- Nagarik -->
+                <a href="https://nagariknews.nagariknetwork.com/arts/the-mind-blowing-man-can-now-be-watched-worldwide-via-ott-25-90.html" target="_blank" class="news-tab bg-slate-50 p-3 rounded-2xl flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-sm text-xs font-bold text-red-600">N</div>
+                    <div>
+                        <p class="text-[10px] font-bold text-red-600 uppercase leading-none mb-1">Nagarik News</p>
+                        <p class="text-[9px] text-slate-500 truncate w-24">Global Worldwide Access</p>
+                    </div>
+                </a>
+
+                <!-- TechPana -->
+                <a href="https://techpana.com/2026/155992/documentary-on-ujwal-thapa-released-on-dishhome-ott-dgo" target="_blank" class="news-tab bg-slate-50 p-3 rounded-2xl flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-sm text-xs font-bold text-slate-800">T</div>
+                    <div>
+                        <p class="text-[10px] font-bold text-slate-800 uppercase leading-none mb-1">TechPana</p>
+                        <p class="text-[9px] text-slate-500 truncate w-24">DishHome OTT Launch</p>
+                    </div>
+                </a>
+
+                <!-- Online Khabar -->
+                <a href="https://www.onlinekhabar.com" target="_blank" class="news-tab bg-slate-50 p-3 rounded-2xl flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-sm text-xs font-bold text-blue-600">OK</div>
+                    <div>
+                        <p class="text-[10px] font-bold text-blue-600 uppercase leading-none mb-1">Online Khabar</p>
+                        <p class="text-[9px] text-slate-500 truncate w-24">उज्वल थापाको जीवनी</p>
+                    </div>
+                </a>
+
+                <!-- Lokaantar -->
+                <a href="https://lokaantar.com/story/316078/2026/4/3/cinema/film-" target="_blank" class="news-tab bg-slate-50 p-3 rounded-2xl flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-sm text-xs font-bold text-orange-600">L</div>
+                    <div>
+                        <p class="text-[10px] font-bold text-orange-600 uppercase leading-none mb-1">Lokaantar</p>
+                        <p class="text-[9px] text-slate-500 truncate w-24">Cinema & Arts Coverage</p>
+                    </div>
+                </a>
+
+                <!-- BizPati -->
+                <a href="https://bizpati.com/2026/04/196812/" target="_blank" class="news-tab bg-slate-50 p-3 rounded-2xl flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-sm text-xs font-bold text-green-700">BP</div>
+                    <div>
+                        <p class="text-[10px] font-bold text-green-700 uppercase leading-none mb-1">BizPati</p>
+                        <p class="text-[9px] text-slate-500 truncate w-24">Business Announcement</p>
+                    </div>
+                </a>
+
+                <!-- ICT Frame -->
+                <a href="https://np.ictframe.com/ujwal-thapa-documentary-dgo/" target="_blank" class="news-tab bg-slate-50 p-3 rounded-2xl flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-sm text-xs font-bold text-blue-400">ICT</div>
+                    <div>
+                        <p class="text-[10px] font-bold text-blue-400 uppercase leading-none mb-1">ICT Frame</p>
+                        <p class="text-[9px] text-slate-500 truncate w-24">Documentary DGo Release</p>
+                    </div>
+                </a>
+
+                <!-- Facebook Viral -->
+                <a href="https://www.facebook.com/100063660906045/posts/1544439337688082/" target="_blank" class="news-tab bg-slate-50 p-3 rounded-2xl flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-sm text-xs font-bold text-blue-800"><i class="fa-brands fa-facebook-f"></i></div>
+                    <div>
+                        <p class="text-[10px] font-bold text-blue-800 uppercase leading-none mb-1">Facebook</p>
+                        <p class="text-[9px] text-slate-500 truncate w-24">Social Paana Viral</p>
+                    </div>
+                </a>
+
+                <!-- Artha Patra -->
+                <div class="news-tab bg-slate-50 p-3 rounded-2xl flex items-center space-x-3 opacity-60">
+                    <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-sm text-xs font-bold text-slate-400">AP</div>
+                    <div>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase leading-none mb-1">Artha Patra</p>
+                        <p class="text-[9px] text-slate-400 truncate w-24">Digital Distribution</p>
+                    </div>
+                </div>
+
+                <!-- Others (Placeholder) -->
+                <div class="news-tab bg-white/40 border-dashed p-3 rounded-2xl flex items-center justify-center">
+                    <p class="text-[9px] font-bold text-slate-300 uppercase italic">+7 More Portals</p>
+                </div>
+
             </div>
         </div>
 
-        <!-- Detailed Media Table -->
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 mb-12">
-            <div class="p-8 border-b bg-gray-50 flex justify-between items-center">
-                <h3 class="text-2xl font-bold">Press Coverage Analysis</h3>
-                <span class="text-gray-400 text-sm italic">Data Source: Public News Portals</span>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left">
-                    <thead>
-                        <tr class="bg-gray-100 text-gray-600 uppercase text-xs">
-                            <th class="p-6">Date</th>
-                            <th class="p-6">Media House</th>
-                            <th class="p-6">Content Narrative</th>
-                            <th class="p-6 text-right">Est. Cost</th>
-                            <th class="p-6 text-right">Actual Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-100">
-                        <!-- Setopati -->
-                        <tr class="hover:bg-purple-50 transition">
-                            <td class="p-6 text-sm text-gray-400">Apr 2</td>
-                            <td class="p-6 font-bold flex items-center">Setopati</td>
-                            <td class="p-6 text-sm text-gray-600 font-medium">Documentary release on DGo OTT</td>
-                            <td class="p-6 text-right text-gray-400 line-through">Rs. 50,000</td>
-                            <td class="p-6 text-right font-bold text-green-600">Rs. 0</td>
-                        </tr>
-                        <!-- Nagarik -->
-                        <tr class="hover:bg-red-50 transition">
-                            <td class="p-6 text-sm text-gray-400">Apr 4</td>
-                            <td class="p-6 font-bold">Nagarik News</td>
-                            <td class="p-6 text-sm text-gray-600 font-medium">Global release & Diaspora reach</td>
-                            <td class="p-6 text-right text-gray-400 line-through">Rs. 40,000</td>
-                            <td class="p-6 text-right font-bold text-green-600">Rs. 0</td>
-                        </tr>
-                        <!-- Online Khabar -->
-                        <tr class="hover:bg-pink-50 transition">
-                            <td class="p-6 text-sm text-gray-400">Apr 2</td>
-                            <td class="p-6 font-bold">Online Khabar</td>
-                            <td class="p-6 text-sm text-gray-600 font-medium">Ujwal Thapa Life Story Feature</td>
-                            <td class="p-6 text-right text-gray-400 line-through">Rs. 50,000</td>
-                            <td class="p-6 text-right font-bold text-green-600">Rs. 0</td>
-                        </tr>
-                         <!-- TechPana -->
-                         <tr class="hover:bg-blue-50 transition">
-                            <td class="p-6 text-sm text-gray-400">Apr 3</td>
-                            <td class="p-6 font-bold">TechPana</td>
-                            <td class="p-6 text-sm text-gray-600 font-medium">Digital Streaming on DishHome OTT</td>
-                            <td class="p-6 text-right text-gray-400 line-through">Rs. 25,000</td>
-                            <td class="p-6 text-right font-bold text-green-600">Rs. 0</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="p-6 bg-gray-50 text-center">
-                <p class="text-sm text-gray-500">+11 other news portals managed with <strong>zero cost</strong>.</p>
-            </div>
-        </div>
-
-        <!-- Social Media Strategy Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-gray-900 text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
-                <div class="relative z-10">
-                    <h3 class="text-3xl font-bold mb-6 italic">Social Ecosystem</h3>
+        <!-- 2. CREATIVE FINANCIAL & PRODUCTION HUB -->
+        <div class="dgo-gradient rounded-[3rem] p-10 md:p-16 text-white shadow-2xl relative overflow-hidden">
+            
+            <div class="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left: Content Efficiency -->
+                <div>
+                    <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-white/50 mb-6">Production Efficiency</h4>
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-10 tracking-tighter leading-none">Internal Content Hub.</h2>
+                    
                     <div class="space-y-6">
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-white/10 p-4 rounded-2xl"><i class="fa-solid fa-clapperboard text-2xl text-yellow-400"></i></div>
+                        <div class="glass-card p-6 rounded-3xl flex items-center space-x-6">
+                            <div class="text-4xl font-black text-yellow-300">05</div>
                             <div>
-                                <h4 class="font-bold text-xl">5+ Feature Videos</h4>
-                                <p class="text-gray-400 text-sm">Long-form narrative content for brand depth.</p>
+                                <p class="text-sm font-bold uppercase tracking-widest leading-none mb-1 text-white">Feature Stories</p>
+                                <p class="text-[10px] text-white/60">High-definition documentary narratives produced in-house.</p>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-white/10 p-4 rounded-2xl"><i class="fa-solid fa-bolt text-2xl text-blue-400"></i></div>
+                        <div class="glass-card p-6 rounded-3xl flex items-center space-x-6">
+                            <div class="text-4xl font-black text-cyan-300">20+</div>
                             <div>
-                                <h4 class="font-bold text-xl">20+ Social Clips</h4>
-                                <p class="text-gray-400 text-sm">Aggressive daily posting schedule on DGo platforms.</p>
+                                <p class="text-sm font-bold uppercase tracking-widest leading-none mb-1 text-white">Optimized Social Clips</p>
+                                <p class="text-[10px] text-white/60">Tailored micro-content for DGo platforms (FB, IG, TikTok).</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Abstract Design Circle -->
-                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-600 rounded-full blur-3xl opacity-20"></div>
-            </div>
 
-            <div class="bg-white p-10 rounded-3xl shadow-lg border border-gray-100 flex flex-col justify-center">
-                <h3 class="text-2xl font-bold mb-4 text-gray-800">Content Management Summary</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">By producing <strong>25+ unique content pieces</strong> in-house, we maintained a constant digital presence on DGo social media platforms without relying on paid influencers or boosted ads.</p>
-                <div class="flex items-center space-x-2 text-green-600 font-bold">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <span>Total Marketing Spending: NPR 0.00</span>
+                <!-- Right: Financial Infographic -->
+                <div class="bg-white rounded-[2.5rem] p-8 text-slate-900 shadow-2xl">
+                    <div class="flex justify-between items-center mb-10">
+                        <h5 class="text-[10px] font-black uppercase tracking-widest text-slate-400">Marketing ROI Analysis</h5>
+                        <i class="fa-solid fa-chart-line text-slate-200 text-2xl"></i>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between text-[10px] font-bold uppercase mb-3">
+                                <span>Earned Media Value (PR)</span>
+                                <span class="text-slate-400">NPR 3,00,000</span>
+                            </div>
+                            <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-purple-500" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-[10px] font-bold uppercase mb-3">
+                                <span>In-House Production Value</span>
+                                <span class="text-slate-400">NPR 1,50,000</span>
+                            </div>
+                            <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-pink-500" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 border-t border-slate-100 mt-10">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="text-[10px] font-black uppercase text-slate-400 mb-1">Actual Direct Spending</p>
+                                    <p class="text-4xl font-black tracking-tighter text-slate-900 leading-none">NPR 0.00</p>
+                                </div>
+                                <div class="bg-green-100 text-green-600 p-4 rounded-2xl text-center">
+                                    <p class="text-[9px] font-black uppercase leading-none mb-1">Value Gained</p>
+                                    <p class="text-lg font-bold leading-none">4.5 Lakhs+</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <footer class="py-12 text-center text-gray-400 text-sm">
-        <p>© 2026 Dimag Gochne Manche Production Team | Published on DGo OTT</p>
+    <footer class="py-12 border-t border-slate-200 bg-white text-center">
+        <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-300">DGM Production | Digital Reach Documentation</p>
     </footer>
 
 </body>
